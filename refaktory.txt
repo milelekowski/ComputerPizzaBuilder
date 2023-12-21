@@ -1,0 +1,55 @@
+commit 83bab39d514f89413ef82bba6fd5b2879d96eabd:
+
+-  sprintf_s(m_strName, "Shell Sort - %d sorting", m_h);
++  m_name = "Shell Sort " + std::to_string(m_h) + "-sorting";
+
+zmiana funkcji z C sprintf_s na konekatenację stringów w stylu C++
+
+
+-  const char *GetName() { return m_strName; }
++  const std::string& GetName() { return m_name; }
+
+zmiana z tablicy znaków na typ string
+
+
+
+commit 8463ec4f8e4ce5a4d604aaff96676c10a6055632:
+
+-  void CBubbleSortAlgorithm::Init(CViData *viData) {
+-	m_viArray = dynamic_cast < CViArray<float> *>(viData);
++  void CBubbleSortAlgorithm::Init(CViArray<float> *viData) {
++	m_viArray = viData;
+
+zmiana dynamic_cast na domniemaną konwersję typów podczas wywołania metody
+
+
+
+commit 558fd53cf912da256ee7d4f73277b600cdbccc47:
+
+-  CLog::CLog(char *szFileName)
++  CLog::CLog(const char *szFileName)
+
+-  void CLog::AddMsg(LOG_MODE lmMode, char *szMsg, ...) {
++  void CLog::AddMsg(LOG_MODE lmMode, const char *szMsg, ...) {
+
+-  GLuint LoadTextureFromBmp(char *fname, GLenum format, GLuint filter)
++  GLuint LoadTextureFromBmp(const char *fname, GLenum format, GLuint filter)
+
+zmiana na stały typ
+
+
+commit 80864defdfe8c4dc3e364dd626aa14cc71a1975c:
+
+-  m_vCurrPos[i] += (m_vArray[i] - m_vCurrPos[i]) * 0.1f;
++  m_vCurrPos[i] += (m_vArray[i] - m_vCurrPos[i]) * s_AnimBlendFactor;
+
+zmiana "magicznej wartości" na zmienną
+
+
+if (m_h < 1) { m_bRunning = false; return; }
+if (m_h < 1) { 
+	m_bRunning = false; 
+	return; 
+}
+
+
